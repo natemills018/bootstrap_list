@@ -1,5 +1,5 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
-import config from './config';
+import config from '../config';
 
 
 

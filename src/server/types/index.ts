@@ -13,3 +13,19 @@ export interface TodoItem {
     name: string;
     user_id: User["_id"]
 }
+
+
+export interface Payload  {
+    id: User["_id"];
+    email: User["email"];
+    role: User["role"];
+}
+
+
+declare global {
+    namespace Express {
+        interface Request {
+            user: Payload;
+        }
+    }
+}
