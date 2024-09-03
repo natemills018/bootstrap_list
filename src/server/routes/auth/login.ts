@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import tokens from '../../utilities/tokens';
 
 
 import db from '../../db';
@@ -11,7 +12,7 @@ import config from '../../config';
 const router = Router();
 
 router.post('/', async (req, res) => {
-    const {email, password } = req.body;
+    const { email, password } = req.body;
     
 
     try {
@@ -31,7 +32,17 @@ router.post('/', async (req, res) => {
             return res.status(400).json({ message: "Invalid Credentials"})
         }
 
-        
+
+        const passwordsmatch = await bcrypt.compare(password, user.password);
+
+        if(!passwordsmatch) {
+            return res.status(400).json({ message: 'Invalid credentials'})
+        }
+
+        const token = tokens.sign({ email, id: user._id, role: user.role})
+
+        res.json({ message: 'Nice!', token})
+
         
     } catch (error) {
         console.log(error)

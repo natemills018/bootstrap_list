@@ -19,8 +19,8 @@ router.post("/", async (req, res) => {
         const user_id = req.user.id;
         const { name } = req.body;
 
-        if (!name || typeof name !== "string" || name.length < 2 || name.length > 64) {
-            return res.status(400).json({ message: "Your item must be between 2 and 64 characters in length" });
+        if (!name || typeof name !== "string" || name.length < 8 || name.length > 100) {
+            return res.status(400).json({ message: "Your todo list item must be between 8 and 100 characters in length" });
         }
 
         const results = await db.todos.create({ name, user_id });
