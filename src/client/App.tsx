@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Router, Routes, Route} from 'react-router-dom';
+import Annoucements from './Views/Annoucements';
+import AddTodo from './Components/AddTodo';
 interface AppProps {}
 
 const App = (props: AppProps) => {
@@ -10,12 +12,12 @@ const App = (props: AppProps) => {
 		<Routes>
 
 			<Route
-				path='/'
-				// element={Home}
+				path='/annoucements'
+				element={<Annoucements />}
 			/>
 			<Route
-				path='/'
-				// element={Home}
+				path='/todos/new'
+				element={<AddTodo />}
 			/>
 			<Route
 				path='/'
