@@ -23,7 +23,7 @@ const AddTodo = (props: TodoProps) => {
   console.log(todo);
 
   return <div>
-    <div className="container">
+    <div className="container mt-5">
 
         <section className="row justify-content-center">
             
@@ -32,6 +32,18 @@ const AddTodo = (props: TodoProps) => {
                     Add Your Todo Here!
                 </h1>
             </div>
+
+
+            <div className="d-flex justify-content-center">
+              <input 
+                className="m-2"
+                placeholder="Type your Todo here!"
+                value={todo}
+                onChange={(e) => setTodo(e.target.value)}
+                />
+            </div>
+
+
 
             <div className="d-flex justify-content-center m-2">
                 <button className="rounded mx-4 bg-lightgray" onClick={handleButton}>
