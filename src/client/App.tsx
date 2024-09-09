@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Router, Routes, Route} from 'react-router-dom';
-import Annoucements from './Views/Annoucements';
+import Annoucements from './Components/Annoucements';
 import AddTodo from './Components/AddTodo';
 import Home from './Views/Home';
 interface AppProps {}
