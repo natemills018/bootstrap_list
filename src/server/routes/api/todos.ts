@@ -24,7 +24,10 @@ router.post("/", async (req, res) => {
         }
 
         const results = await db.todos.create({ name, user_id });
-        res.status(201).json({ message: "Successfully added item!", id: results.insertedId });
+        const id = results.insertedId
+
+
+        res.status(201).json({ message: "Successfully added item!", id });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Cannot create that item at this time" });
