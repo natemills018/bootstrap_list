@@ -3,6 +3,7 @@ import { BrowserRouter, Router, Routes, Route} from 'react-router-dom';
 import Annoucements from './Components/Annoucements';
 import AddTodo from './Components/AddTodo';
 import Home from './Views/Home';
+import List from './Views/List';
 interface AppProps {}
 
 const App = (props: AppProps) => {
@@ -12,10 +13,7 @@ const App = (props: AppProps) => {
 
 		<Routes>
 
-			<Route
-				path='/annoucements'
-				element={<Annoucements />}
-			/>
+			
 			<Route
 				path='/todos/new'
 				element={<AddTodo />}
@@ -25,8 +23,8 @@ const App = (props: AppProps) => {
 			element={<Home />}
 			/>
 			<Route
-				path='/'
-				// element={Home}
+				path='/todos'
+				element={<List />}
 			/>
 			<Route
 				path='/'

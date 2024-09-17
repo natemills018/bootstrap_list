@@ -1,6 +1,7 @@
 import express from "express";
 import db from '../../db';
 import { ObjectId } from "mongodb";
+import tokenCheck from "../../middleware/tokenCheck";
 
 const router = express.Router();
 
@@ -14,18 +15,17 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", tokenCheck, async (req, res) => {
     try {
         
         const user_id = req.user.id;
-        console.log(user_id)
-        const { name } = req.body;
+        const { title, name } = req.body;
 
-        if (!name || typeof name !== "string" || name.length < 8 || name.length > 100) {
-            return res.status(400).json({ message: "Your todo list item must be between 8 and 100 characters in length" });
+        if (!name || typeof name !== "string" || name.length < 8 || name.length > 450) {
+            return res.status(400).json({ message: "Your todo list item must be between 8 and 450 characters in length" });
         }
 
-        const results = await db.todos.create({ name, user_id });
+        const results = await db.todos.create({ title, name, user_id });
         const databaseID = results.insertedId
 
 

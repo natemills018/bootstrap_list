@@ -10,6 +10,7 @@ export interface User {
 
 export interface TodoItem {
     _id?: ObjectId;
+    title: string;
     name: string;
     user_id: User["_id"]
 }
