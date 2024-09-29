@@ -30,7 +30,7 @@ const DynamicBackground: React.FC = () => {
 
   return (
     <div className={`d-flex justify-content-center align-items-center vh-100 ${backgroundClasses[timeOfDay]}`}>
-      <h1 className="text-light">Good {timeOfDay}!</h1>
+      <h1 className="text-light">Good {timeOfDay} get a job!</h1>
     </div>
   );
 };
