@@ -1,20 +1,36 @@
-.bg-morning {
-    background: linear-gradient(to right, #ffdd99, #ffbb66, #ff9966);
+/* Small container size */
+.small-container {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.5s ease;
   }
   
-  .bg-afternoon {
-    background: linear-gradient(to right, #66ccff, #66ff99, #ffcc66);
+  /* Neutral background styles */
+  .bg-neutral-morning {
+    background: linear-gradient(to right, #d3d3d3, #f0f0f0, #e6e6e6); /* Light gray */
   }
   
-  .bg-evening {
-    background: linear-gradient(to right, #ff9966, #ff6699, #9966ff);
+  .bg-neutral-afternoon {
+    background: linear-gradient(to right, #eae0d5, #f5f5f5, #dcdcdc); /* Light beige/gray */
   }
   
-  .bg-night {
-    background: linear-gradient(to right, #333333, #663399, #000000);
+  .bg-neutral-evening {
+    background: linear-gradient(to right, #b0a8a0, #d6d1cc, #a09991); /* Warm gray */
+  }
+  
+  .bg-neutral-night {
+    background: linear-gradient(to right, #3b3b3b, #4b4b4b, #2b2b2b); /* Dark gray */
+  }
+  
+  /* Button styling */
+  .btn-group {
+    margin-top: 10px;
   }
   
   .vh-100 {
     height: 100vh;
   }
-  
