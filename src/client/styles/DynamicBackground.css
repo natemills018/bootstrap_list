@@ -1,36 +1,75 @@
-/* Small container size */
-.small-container {
-    width: 300px;
-    height: 300px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background 0.5s ease;
-  }
-  
-  /* Neutral background styles */
-  .bg-neutral-morning {
-    background: linear-gradient(to right, #d3d3d3, #f0f0f0, #e6e6e6); /* Light gray */
-  }
-  
-  .bg-neutral-afternoon {
-    background: linear-gradient(to right, #eae0d5, #f5f5f5, #dcdcdc); /* Light beige/gray */
-  }
-  
-  .bg-neutral-evening {
-    background: linear-gradient(to right, #b0a8a0, #d6d1cc, #a09991); /* Warm gray */
-  }
-  
-  .bg-neutral-night {
-    background: linear-gradient(to right, #3b3b3b, #4b4b4b, #2b2b2b); /* Dark gray */
-  }
-  
-  /* Button styling */
-  .btn-group {
-    margin-top: 10px;
-  }
-  
-  .vh-100 {
-    height: 100vh;
-  }
+/* Abstract container style */
+.abstract-container {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%; /* Make it an oval shape */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Add depth with shadow */
+  overflow: hidden;
+  border: 5px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.5s ease;
+}
+
+/* Add a gradient border */
+.abstract-container:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, #ffcc33, #33ccff, #ff66cc, #66cc66);
+  z-index: -1;
+  filter: blur(10px); /* Apply blur to give an abstract glow */
+}
+
+/* Content inside the container */
+.content {
+  z-index: 1; /* Ensure the content stays on top */
+  text-align: center;
+  padding: 20px;
+  border-radius: 50%; /* Ensure content follows oval shape */
+  background-color: rgba(255, 255, 255, 0.7); /* Add semi-transparent white background for content */
+  backdrop-filter: blur(5px); /* Abstract background blur effect */
+}
+
+/* Abstract background styles for time of day */
+.bg-abstract-morning {
+  background: linear-gradient(135deg, #e6f7ff, #cceeff, #99ccff);
+}
+
+.bg-abstract-afternoon {
+  background: linear-gradient(135deg, #ffe6cc, #ffccb3, #ff9966);
+}
+
+.bg-abstract-evening {
+  background: linear-gradient(135deg, #ffcc99, #ff9966, #ff6699);
+}
+
+.bg-abstract-night {
+  background: linear-gradient(135deg, #333333, #666666, #999999);
+}
+
+/* Button styling */
+.btn-group {
+  margin-top: 10px;
+}
+
+.btn {
+  margin: 0 5px;
+}
+
+/* Button color change for a more abstract feel */
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

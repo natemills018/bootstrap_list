@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/DynamicBackground.css';
 
+
 type TimeOfDay = 'morning' | 'afternoon' | 'evening' | 'night';
 
 const SmallDynamicBackground: React.FC = () => {
@@ -8,10 +9,10 @@ const SmallDynamicBackground: React.FC = () => {
 
   // Define CSS classes for each time of day
   const backgroundClasses: Record<TimeOfDay, string> = {
-    morning: 'bg-neutral-morning',
-    afternoon: 'bg-neutral-afternoon',
-    evening: 'bg-neutral-evening',
-    night: 'bg-neutral-night',
+    morning: 'bg-abstract-morning',
+    afternoon: 'bg-abstract-afternoon',
+    evening: 'bg-abstract-evening',
+    night: 'bg-abstract-night',
   };
 
   // Function to handle changing the time of day based on user input
@@ -20,30 +21,30 @@ const SmallDynamicBackground: React.FC = () => {
   };
 
   return (
-    <div className={`small-container p-3 ${backgroundClasses[timeOfDay]}`}>
-      <div className="text-center">
+    <div className={`abstract-container ${backgroundClasses[timeOfDay]}`}>
+      <div className="content">
         <h3 className="text-dark mb-3">Good {timeOfDay}!</h3>
         <div className="btn-group">
           <button
-            className="btn btn-outline-dark btn-sm"
+            className="btn btn-outline-light btn-sm"
             onClick={() => handleChangeTimeOfDay('morning')}
           >
             Morning
           </button>
           <button
-            className="btn btn-outline-dark btn-sm"
+            className="btn btn-outline-light btn-sm"
             onClick={() => handleChangeTimeOfDay('afternoon')}
           >
             Afternoon
           </button>
           <button
-            className="btn btn-outline-dark btn-sm"
+            className="btn btn-outline-light btn-sm"
             onClick={() => handleChangeTimeOfDay('evening')}
           >
             Evening
           </button>
           <button
-            className="btn btn-outline-dark btn-sm"
+            className="btn btn-outline-light btn-sm"
             onClick={() => handleChangeTimeOfDay('night')}
           >
             Night
@@ -55,5 +56,3 @@ const SmallDynamicBackground: React.FC = () => {
 };
 
 export default SmallDynamicBackground;
-
-
