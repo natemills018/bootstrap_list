@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { GET } from '../services/fetcher';
+import { TodoItem } from '../frontend_types';
 
 const RandomImageCard = () => {
 
+  const [data, setData] = useState<TodoItem[]>([])
 
   const imageArray = [
     '../images/arts.png',
@@ -16,6 +19,12 @@ const RandomImageCard = () => {
     const selectedImage = getRandomImage(imageArray);
     setRandomImage(selectedImage);
   }, []);
+
+  useEffect(() => {
+    GET('/api/todos').then(data => setData(data))
+  })
+
+
 
   function getRandomImage(images: string | any[]) {
     const randomIndex = Math.floor(Math.random() * images.length);
