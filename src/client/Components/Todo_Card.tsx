@@ -22,6 +22,7 @@ const RandomImageCard = () => {
 
   useEffect(() => {
     GET('/api/todos').then(data => setData(data))
+    console.log(data)
   })
 
 
@@ -34,8 +35,18 @@ const RandomImageCard = () => {
   return (
     <div className="card" style={{ width: '18rem' }}>
       <img src={randomImage} className="card-img-top" alt="Random" />
+
+
       <div className="card-body">
-        <h5 className="card-title">Random Image Card</h5>
+        <h5 className="card-title">{data.map((todo) => (
+            <div>{todo.name}</div>
+        ))}</h5>
+
+
+
+
+
+
         <p className="card-text">This card displays a randomly selected image from an array of images.</p>
       </div>
     </div>
